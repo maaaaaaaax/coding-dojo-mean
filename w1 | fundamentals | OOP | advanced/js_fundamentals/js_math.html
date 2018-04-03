@@ -1,0 +1,61 @@
+<html>
+<body>
+    <div id="div1">
+        <li>Bananas</li>
+        <li>Oranges</li>
+        <li>Apples</li>
+    </div>
+<script>
+    function zero_negativity(array){
+      for(let i = 0; i < array.length; i++){
+        if(array[i] < 0){
+          return false;
+        };
+      };
+      return true;
+    }
+    // console.log(zero_negativity([1,2,3]));
+    // true
+    // console.log(zero_negativity([0,1,2]));
+    // true
+    // console.log(zero_negativity([-1,1,2]));
+    // false
+    function is_even(number){
+      if(number % 2 != 0){
+          return false;
+        };
+      return true;
+    }
+    // console.log(is_even(1))
+    // false
+    // console.log(is_even(1))
+    // true
+    function how_many_even(array){
+      let counter = 0;
+      for(let i = 0; i < array.length; i++){
+        if(is_even(array[i])){
+          counter++;
+        };
+      };
+      return counter;
+    }
+    // console.log(how_many_even([1,2,3]));
+    // 1
+    function dummy_array(number){
+      let dummy = [];
+      for(let i = 0; i < number; i++){
+        dummy.push(Math.floor(Math.random()*10));
+      };
+      return dummy;
+    }
+    // console.log(dummy_array(8));
+    // [7, 5, 4, 5, 2, 0, 4, 9]
+    function random_choice(array){
+      let x = array[Math.floor(Math.random()*(array.length-1))];
+      return x;
+    }
+    console.log(random_choice(dummy_array(3)));
+    // 3
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<body>
+    <div id="div1">
+        <li>Bananas</li>
+        <li>Oranges</li>
+        <li>Apples</li>
+    </div>
+<script>
+    function magic_multiply(x, y){
+        if (x.constructor === String || y.constructor === String){
+          return "Error: cannot multiply by string."
+        }
+        if (x === 0 && y === 0){
+          return "All inputs 0"
+        };
+        if (x.constructor === Array){
+          console.log("X is an array.")
+          let arr = []
+          for(let i = 0; i < x.length; i++){
+            arr.push((x[i]*y));
+          };
+          return arr
+        };
+        let z = x * y;
+        return z;
+    };
+    console.log(magic_multiply([1,2,3],"hello"));
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<html>
+<body>
+    <div id="div1">
+        <li>Bananas</li>
+        <li>Oranges</li>
+        <li>Apples</li>
+    </div>
+<!-- <script>
+    function starString(number){
+      let stars = "";
+      let star = "*";
+      for(let i = 0; i < number; i++){
+        stars = stars.concat(star);
+      };
+      return stars;
+    }
+    // let string = starString(8);
+    // console.log(string);
+    // ********
+    function drawStars(array){
+      for(let i = 0; i < array.length; i++){
+        console.log(starString(array[i]));
+      };
+      return true;
+    }
+    let x = [4, 6, 1, 3, 5, 7, 25];
+    drawStars(x);
+</script> -->
+<script>
+    function starString(number){
+      let stars = "";
+      let star = "*";
+      for(let i = 0; i < number; i++){
+        stars = stars.concat(star);
+      };
+      return stars;
+    }
+    // let string = starString(8);
+    // console.log(string);
+    // ********
+    function stringRepeatFirstLetter(str){
+      let string = "";
+      let letter = str[0].toLowerCase();
+      for(let j = 0; j < str.length; j++){
+        string = string.concat(letter);
+      };
+      return string;
+    }
+    // let string = stringRepeatFirstLetter("MAX");
+    // console.log(string);
+    // mmm
+
+    function drawStars(array){
+      for(let i = 0; i < array.length; i++){
+        if(array[i].constructor === Number){
+          console.log(starString(array[i]));
+        };
+        if(array[i].constructor === String){
+          console.log(stringRepeatFirstLetter(array[i]));
+        };
+      };
+      return true;
+    }
+    let x = [4, "Max", 1, "Ben", 5, 7, 25];
+    drawStars(x);
+</script>
+</body>
+</html>

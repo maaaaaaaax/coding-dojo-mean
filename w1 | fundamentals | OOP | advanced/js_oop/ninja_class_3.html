@@ -1,0 +1,110 @@
+<html>
+<body>
+    <div id="div1">
+        <li>Bananas</li>
+        <li>Oranges</li>
+        <li>Apples</li>
+    </div>
+<!-- <script>
+function Ninja(name, health) {
+
+    this.name = name;
+    this.health = health;
+    this.speed = 3;
+    this.strength = 3;
+
+    // To make functions private, we scope them to the constructor
+    this.sayName = function() {
+        console.log(`My ninja name is ${this.name}!`);
+        return this;
+    };
+
+    // 'Getter' functions help us read private variables
+    this.showStats = function() {
+      console.log(`Name: ${this.name}, Health: ${this.health}, Speed: ${this.speed}, Strength: ${this.strength}`);
+      return this;
+    };
+
+    // 'Setter' functions help us update private variables
+    this.drinkSake = function() {
+      health = (health + 10);
+      // return this will allow us to chain methods
+      return this;
+    };
+
+    this.punch = function(ninja) {
+      ninja.health -= 5;
+      console.log(`${ninja.name} was punched by ${this.name} and lost 5 health!`);
+    };
+
+    this.kick = function(ninja) {
+      if(this instanceof Ninja){
+        ninja.health -= (5*this.strength);
+        console.log(`${ninja.name} was punched by ${this.name} and lost ${5*this.strength} health!`);
+      };
+    };
+};
+const ninja1 = new Ninja("Hayabusa", 100);
+const ninja2 = new Ninja("Hirohito", 120);
+ninja1.sayName();
+ninja2.drinkSake().showStats().drinkSake().showStats();
+ninja1.punch(ninja2);
+ninja1.kick(ninja2);
+ninja1.showStats();
+ninja2.showStats();
+</script> -->
+
+<script>
+
+class Ninja {
+  constructor(name) {
+    this.name = name;
+    this.health = 100;
+    this.speed = 3;
+    this.strength = 3;
+  };
+  sayName() {
+    console.log(`My ninja name is ${this.name}!`);
+  };
+  showStats() {
+    console.log(`Name: ${this.name}, Health: ${this.health}, Speed: ${this.speed}, Strength: ${this.strength}`);
+    return this;
+  };
+  drinkSake() {
+    this.health = this.health+10;
+    console.log(`${this.name}'s health is now ${this.health}`);
+    return this;
+  };
+};
+
+class Sensei extends Ninja {
+    constructor(name) {
+        super(name);
+        super.health = 200;
+        super.speed = 10;
+        super.strength = 10;
+        this.wisdom = 10;
+    };
+    // simple function in the child class
+    speakWisdom() {
+        // by using super, we can call the parent method
+        super.drinkSake();
+        console.log("a wise message");
+    };
+};
+const ninja1 = new Ninja("Hayabusa");
+const ninja2 = new Ninja("Hirohito");
+const ninja3 = new Ninja("Sapporo");
+const ninja4 = new Ninja("Asahi");
+const ninja5 = new Sensei("Edo");
+ninja1.sayName();
+ninja2.drinkSake().showStats().drinkSake().showStats();
+ninja3.sayName();
+ninja4.showStats();
+ninja5.showStats();
+ninja5.speakWisdom();
+</script>
+
+
+</body>
+</html>

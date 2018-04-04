@@ -1,0 +1,57 @@
+<html>
+<body>
+    <div id="div1">
+        <li>Bananas</li>
+        <li>Oranges</li>
+        <li>Apples</li>
+    </div>
+<script>
+function Ninja(name, health) {
+
+    this.name = name;
+    this.health = health;
+    this.speed = 3;
+    this.strength = 3;
+
+    // To make functions private, we scope them to the constructor
+    this.sayName = function() {
+        console.log(`My ninja name is ${this.name}!`);
+        return this;
+    };
+
+    // 'Getter' functions help us read private variables
+    this.showStats = function() {
+      console.log(`Name: ${this.name}, Health: ${this.health}, Speed: ${this.speed}, Strength: ${this.strength}`);
+      return this;
+    };
+
+    // 'Setter' functions help us update private variables
+    this.drinkSake = function() {
+      health = (health + 10);
+      // return this will allow us to chain methods
+      return this;
+    };
+
+    this.punch = function(ninja) {
+      ninja.health -= 5;
+      console.log(`${ninja.name} was punched by ${this.name} and lost 5 health!`);
+    };
+
+    this.kick = function(ninja) {
+      if(this instanceof Ninja){
+        ninja.health -= (5*this.strength);
+        console.log(`${ninja.name} was punched by ${this.name} and lost ${5*this.strength} health!`);
+      };
+    };
+};
+const ninja1 = new Ninja("Hayabusa", 100);
+const ninja2 = new Ninja("Hirohito", 120);
+ninja1.sayName();
+ninja2.drinkSake().showStats().drinkSake().showStats();
+ninja1.punch(ninja2);
+ninja1.kick(ninja2);
+ninja1.showStats();
+ninja2.showStats();
+</script>
+</body>
+</html>

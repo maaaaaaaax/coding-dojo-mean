@@ -1,0 +1,27 @@
+<!-- HTML & JavaScript code by Max Wiederholt (max.wiederholt@gmail.com) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <meta name="description" content="Hi, Google! | HTML & JavaScript by Max Wiederholt (max.wiederholt@gmail.com) for Coding Dojo.">
+    <!--
+
+    Notes if you need to explain the purpose of this document.
+
+    -->
+    <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+  </head>
+  <body>
+    <p id='dojo'>This is the Dojo.</p>
+    <button> Click me to change the paragraph!</button>
+    <h3>Log In:</h3>
+    <form action='/sign_in' method='POST'>
+      <label for="email_sign_in">Username:<input type="text" name="email_sign_in" id="email_sign_in" value="{{ old_form.email_sign_in }}"></label>
+      <label for="password_sign_in">Password:<input type="password" name="password_sign_in" id="password_sign_in"></label>
+      <label for="password_confirm_sign_in">Password Confirm:<input type="password" name="password_confirm_sign_in" id="password_confirm_sign_in"></label>
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+/* CSS styles for internet-css assignment by Max Wiederholt (max.wiederholt@gmail.com) */
+
+* {
+    /* outline: 0;
+    padding: 0;
+    margin: 0;
+    border: 0; */
+    font-family: 'Ubuntu', sans-serif;
+}
+#dojo {
+  font-weight: 700;
+}
+.image {
+  max-width: 1000px;
+}
+
+/*
+width: 270px;
+height: 144px;
+*/
+
+/* background-colors:
+
+Reddit logo orange: #ff3a19
+
+Facebook logo blue: #2e5c97
+
+Google logo green: #1ba85c
+
+Google Play logo light blue: #00d9fc
+
+Hulu logo dark green: #61a944
+
+Twitter logo light blue: #00afe8
+
+Google plus logo red: #e54946
+
+Netflix logo dark red: #c00011
+
+Bumble logo yellow-gold: #fec459
+
+Evernote app icon green: #00ad32
+
+Amazon logo gold: #ff952e
+
+Lyft logo pink-purple: #ff0083

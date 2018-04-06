@@ -66,3 +66,5 @@ console.log("Running in localhost at port 6789");
 // Boot up your node server by navigating to your node_server folder in a terminal window and typing:
 
 nodemon app.js
+
+// Requiring a Node module allows you to use the module.exports object of another file!

@@ -1,0 +1,27 @@
+<!-- HTML & JavaScript code by Max Wiederholt (max.wiederholt@gmail.com) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <meta name="description" content="Hi, Google! | HTML & JavaScript by Max Wiederholt (max.wiederholt@gmail.com) for Coding Dojo.">
+    <!--
+
+    Notes if you need to explain the purpose of this document.
+
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="javascript-filename.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+      <h2>Here are all the users:</h2>
+      <% for (var x in users) { %>
+          <h3>Name: <%= users[x].name %></h3>
+          <h4>Email: <%= users[x].email %></h4>
+          <hr>
+      <% } %>
+  </body>
+</html>

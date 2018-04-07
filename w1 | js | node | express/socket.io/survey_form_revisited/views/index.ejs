@@ -1,0 +1,60 @@
+<!-- HTML & JavaScript code by Max Wiederholt (max.wiederholt@gmail.com) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <meta name="description" content="Hi, Google! | HTML & JavaScript by Max Wiederholt (max.wiederholt@gmail.com) for Coding Dojo.">
+    <!--
+
+    Notes if you need to explain the purpose of this document.
+
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type ="text/javascript">
+        $(document).ready(function (){
+            // this triggers the connection event in our server!
+            var socket = io.connect();
+            // we'll write all the socket stuff after the above line!
+            $("#form").submit(function (){
+              event.preventDefault();
+              // store the form data in an array
+              $("#results").empty();
+              var form_data = $(this).serializeArray();
+              console.log(form_data);
+              $("#results").append("You emitted the following information to the server: ");
+              for(var index = 0; index < form_data.length; index++){
+                console.log(form_data[index].name + ": " + form_data[index].value);
+                $("#results").append(form_data[index].name + ": " + form_data[index].value + " ");
+              };
+              socket.emit("posting_form", {form:  "because I want to learn about sockets!"});
+            });
+            socket.on('server_response', function (data){
+               console.log('The server says: '  + data.response);
+            });
+        })
+    </script>
+  </head>
+  <body>
+    <p><span id="results"></span></p>
+    <form id="form" action='/submit' method='post'>
+        Name: <input id="name" type='text' name='name'>
+        <select id="location" name="location">
+            <option value="San Jose">San Jose</option>
+            <option value="Seattle">Seattle</option>
+        </select>
+        <select id="language" name="language">
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="JavaScript">JavaScript</option>
+            <option value="Python">Python</option>
+        </select>
+        <textarea id="comment" name="comment"></textarea>
+        <input type='submit' value='comment'>
+    </form>
+  </body>
+</html>

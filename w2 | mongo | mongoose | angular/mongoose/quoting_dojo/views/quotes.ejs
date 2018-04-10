@@ -1,0 +1,15 @@
+<html>
+    <head>
+       <title>Dojo Survey Index</title>
+    </head>
+    <body>
+      <h3>Here are the awesome quotes!</h3>
+      <% for (var q in quotes) { %>
+        <p><%= quotes[q].quote %></p>
+        <p><%= quotes[q].name %></p>
+        <p><%= quotes[q].created_at %></p>
+        <hr>
+      <% } %>
+      <a href="/"><button type="button">Submit A New Quote</button></a>      
+    </body>
+</html>

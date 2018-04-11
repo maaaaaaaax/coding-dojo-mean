@@ -1,0 +1,96 @@
+<!-- HTML & JavaScript code by Max Wiederholt (max.wiederholt@gmail.com) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <meta name="description" content="Hi, Google! | HTML & JavaScript by Max Wiederholt (max.wiederholt@gmail.com) for Coding Dojo.">
+    <!--
+
+    Notes if you need to explain the purpose of this document.
+
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,500,700" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+  </head>
+  <body>
+    <% if(typeof(errors) != 'undefined' ) { %>
+      <% for (var x in errors) { %>
+        <h3><%= errors[x].message %></h3>
+      <% } %>
+    <% } %>
+    <form action='/users' method='post'>
+      <div>
+        Pick Your Role(s):
+        <input type="checkbox" id="writer" name="role" value="writer">
+        <label for="writer">Writer</label>
+        <input type="checkbox" id="producer" name="role" value="producer">
+        <label for="producer">Producer</label>
+        <input type="checkbox" id="director" name="role" value="director">
+        <label for="director">Director</label>
+        <input type="checkbox" id="actor" name="role" value="actor">
+        <label for="actor">Actor</label>
+        <input type="checkbox" id="crew" name="role" value="crew">
+        <label for="crew">Crew</label>
+        <input type="checkbox" id="post" name="role" value="post">
+        <label for="post">Post</label>
+        <input type="checkbox" id="partner" name="role" value="partner">
+        <label for="partner">Partner</label>
+      </div>
+      <div>
+        <input type='text' name='first_name' value="first name">
+        <input type='text' name='last_name' value="last name">
+        <input type='text' name='username' value="username">
+        <input type='text' name='email' value="email">
+      </div>
+      <div>
+        Birthday:
+        <input type='text' name='birth_month' value="month">
+        <input type='text' name='birth_day' value="day">
+        <input type='text' name='birth_year' value="year">
+      </div>
+      <div>
+        Optional:
+        <div>
+          <input type='text' name='phone' value="phone number">
+          Please include your area code, and omit any non-numerical characters.
+          (Ex: 6501234567)
+        </div>
+        <div>
+          Location:
+          <input type='text' name='zip_code' value="zip code">
+          (Ex: 90210)
+          <input type='text' name='city' value="city">
+          (Ex: Los Angeles)
+          <input type='text' name='state' value="state postal code">
+          (Ex: CA)
+          <input type='text' name='country' value="country">
+          (Ex: USA)
+        </div>
+        <div>
+          <div>
+            <input type='text' name='facebook' value="facebook username">
+            (When you visit your profile, your username follows fb.com/ Ex: max.wiederholt)
+          </div>
+          <div>
+            <input type='text' name='instagram' value="instagram username">
+            (Your Instagram username, including '@'. Ex: @maxwiederholt)
+          </div>
+          <div>
+            <input type='text' name='linkedin' value="LinkedIn username">
+            (When you visit your profile, your username follows linkedin.com/in/ Ex: maxwiederholt)
+          </div>
+          <div>
+            <input type='text' name='venmo' value="Venmo username">
+            (Your Venmo username, including '@'. Ex: @MaxWiederholt)
+          </div>
+        </div>
+      </div>
+        <input type='submit' value='submit'>
+    </form>
+    <a href="/"><button type="button">show users</button></a>
+  </body>
+</html>

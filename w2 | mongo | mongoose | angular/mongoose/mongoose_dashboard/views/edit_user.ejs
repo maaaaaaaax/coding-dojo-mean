@@ -1,0 +1,83 @@
+<html>
+    <head>
+       <title>Dojo Survey Index</title>
+    </head>
+    <body>
+      <h3>Update User Info for <%= users[0]._id %></h3>
+      <hr>
+      <% if(users.length === 0) { %>
+        <p>No users found</p>
+        <hr>
+      <% } %>
+      <form action='/users/<%= users[0]._id %>' method='post'>
+        <div>
+          Pick Your Role(s):
+          <input type="checkbox" id="writer" name="role" value="writer">
+          <label for="writer">Writer</label>
+          <input type="checkbox" id="producer" name="role" value="producer">
+          <label for="producer">Producer</label>
+          <input type="checkbox" id="director" name="role" value="director">
+          <label for="director">Director</label>
+          <input type="checkbox" id="actor" name="role" value="actor">
+          <label for="actor">Actor</label>
+          <input type="checkbox" id="crew" name="role" value="crew">
+          <label for="crew">Crew</label>
+          <input type="checkbox" id="post" name="role" value="post">
+          <label for="post">Post</label>
+          <input type="checkbox" id="partner" name="role" value="partner">
+          <label for="partner">Partner</label>
+        </div>
+        <div>
+          <input type='text' name='first_name' value="<%= users[0].first_name %>">
+          <input type='text' name='last_name' value="<%= users[0].last_name %>">
+          <input type='text' name='username' value="<%= users[0].username %>">
+          <input type='text' name='email' value="<%= users[0].email %>">
+        </div>
+        <div>
+          Birthday:
+          <input type='text' name='birth_month' value="<%= users[0].birth_month %>">
+          <input type='text' name='birth_day' value="<%= users[0].birth_day %>">
+          <input type='text' name='birth_year' value="<%= users[0].birth_year %>">
+        </div>
+        <div>
+          Optional:
+          <div>
+            <input type='text' name='phone' value="<%= users[0].phone %>">
+            Please include your area code, and omit any non-numerical characters.
+            (Ex: 6501234567)
+          </div>
+          <div>
+            Location:
+            <input type='text' name='zip_code' value="<%= users[0].zip_code %>">
+            (Ex: 90210)
+            <input type='text' name='city' value="<%= users[0].city %>">
+            (Ex: Los Angeles)
+            <input type='text' name='state' value="<%= users[0].state %>">
+            (Ex: CA)
+            <input type='text' name='country' value="<%= users[0].country %>">
+            (Ex: USA)
+          </div>
+          <div>
+            <div>
+              <input type='text' name='facebook' value="<%= users[0].facebook %>">
+              (When you visit your profile, your username follows fb.com/ Ex: max.wiederholt)
+            </div>
+            <div>
+              <input type='text' name='instagram' value="<%= users[0].instagram %>">
+              (Your Instagram username, including '@'. Ex: @maxwiederholt)
+            </div>
+            <div>
+              <input type='text' name='linkedin' value="<%= users[0].linkedin %>">
+              (When you visit your profile, your username follows linkedin.com/in/ Ex: maxwiederholt)
+            </div>
+            <div>
+              <input type='text' name='venmo' value="<%= users[0].venmo %>">
+              (Your Venmo username, including '@'. Ex: @MaxWiederholt)
+            </div>
+          </div>
+        </div>
+        <input type='submit' value='submit'>
+      </form>
+      <a href="/users/new"><button type="button">New User Registration</button></a>
+    </body>
+</html>

@@ -11,17 +11,17 @@ mongoose.connect('mongodb://localhost/mongoose_dashboard');
 mongoose.Promise = global.Promise;
 
 var UserSchema = new mongoose.Schema({
- first_name: { type: String, required: true, minlength: 2},
- last_name: { type: String, required: true, minlength: 2},
- username: { type: String, required: true, minlength: 2},
- email: { type: String, required: true, minlength: 6},
- birth_day: { type: Number, required: true, min: 1, max: 31},
- birth_month: { type: Number, required: true, min: 1, max: 12},
- birth_year: { type: Number, required: true, min: 1900, max: 2018},
+ first_name: { type: String, required: [true, "First name is required"], minlength: [2, "First name must be at least two characters"]},
+ last_name: { type: String, required: [true, "Last name is required"], minlength: [2, "Last name must be at least two characters"]},
+ username: { type: String, required: [true, "Username is required"], minlength: [2, "Username must be at least two characters"]},
+ email: { type: String, required: [true, "Email is required"], minlength: [6, "Email must be at least 6 characters"]},
+ birth_day: { type: Number, required: [true, "Birthday is required"], min: [1, "For birthday, please enter a number between 1 and 31, inclusive."], max: [31, "For birthday, please enter a number between 1 and 31, inclusive."]},
+ birth_month: { type: Number, required: [true, "Birth month is required"], min: [1, "For month, please enter a number between 1 and 12, inclusive."], max: [12, "For month, please enter a number between 1 and 12, inclusive."]},
+ birth_year: { type: Number, required: [true, "Birth year is required"], min: [1900, "Please enter a year between 1900 and 2018, inclusive."], max: [2018, "Please enter a year between 1900 and 2018, inclusive."]},
  phone: { type: Number},
  zip_code: { type: Number},
  city: { type: String},
- state: { type: String, minlength: 2, maxlength: 2},
+ state: { type: String, minlength: [2, "For state, please enter a valid US Postal Abbreviation. Ex: If you live in California, please enter CA."], maxlength: [2, "For state, please enter a valid US Postal Abbreviation. Ex: If you live in California, please enter CA."]},
  country: { type: String},
  facebook: {type: String},
  instagram: { type: String},
@@ -59,7 +59,11 @@ app.get('/', function(req, res) {
 })
 
 app.get('/users/new', function(req, res) {
-  res.render('index');
+  if(req.session['errors']){
+    var errors = req.session.errors;
+    req.session.destroy();
+  };
+  res.render('index', {errors: errors});
 })
 
 // Add User Request
@@ -75,7 +79,10 @@ app.post('/users', function(req, res) {
     // if there is an error console.log that something went wrong!
     if(err) {
       console.log('something went wrong');
-      res.render('index', {errors: user.errors});
+      console.log("user.errors: " + user.errors);
+      req.session.errors = user.errors;
+      console.log("req.session.errors: " + req.session.errors);
+      res.redirect('/users/new');
     } else { // else console.log that we did well and then redirect to the root route
       console.log('successfully added a user!');
       res.redirect('/');

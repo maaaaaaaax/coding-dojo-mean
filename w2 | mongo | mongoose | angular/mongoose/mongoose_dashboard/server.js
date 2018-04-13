@@ -169,6 +169,11 @@ app.post('/users/destroy/:id', function(req, res) {
 })
 
 // Setting our Server to Listen on Port: 8000
-app.listen(8000, function() {
-    console.log("listening on port 8000");
-})
+// app.listen(8000, function() {
+//     console.log("listening on port 8000");
+// })
+
+var server = app.listen(8000, function() {
+ console.log("listening on port 8000");
+});
+var io = require('socket.io').listen(server);

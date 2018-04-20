@@ -1,0 +1,402 @@
+/* CSS styles for internet-css assignment by Max Wiederholt (max.wiederholt@gmail.com) */
+
+* {
+    /* outline: 0; */
+    padding: 0;
+    margin: 0;
+    /* border: 0; */
+    font-family: 'Ubuntu', sans-serif;
+}
+.error_message{
+  color: #c00011;
+  font-weight: 600;
+}
+#roles_title{
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-weight: 700;
+}
+.role_text{
+  font-weight: 600;
+}
+#roles_wrapper{
+  margin-bottom: 15px;
+}
+.wrapper{
+  margin-left: 15px;
+  margin-top: 15px;
+}
+.roles{
+  display: block;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+.roles_label{
+  margin-left: 7px;
+}
+.names{
+  margin-top: 10px;
+}
+.contact{
+  margin-top: 10px;
+}
+#wrapper{
+    width: 902px;
+    height: 962px;
+    margin: 0px 0px;
+    padding-left: 12px;
+    padding-top: 29px;
+    /* background-color is Reddit logo orange */
+    background-color: #072133;
+    /* background: linear-gradient(to bottom, #265175, #3775aa) */
+}
+#header{
+    height: 225px;
+    width: 4444px;
+    display: block;
+    /* Reddit logo orange: #ff3a19 */
+    /* background-color: #ff3a19; */
+    padding-left: 17px;
+}
+#james-consulting-brand-header{
+    display: inline-block;
+    vertical-align: top;
+    color: #ffffff;
+    height: 50px;
+    width: 238px;
+    /* Netflix logo dark red: #c00011 */
+    /* background-color: #c00011 */
+    font-size: 130%;
+}
+#header-navigation{
+    display: inline-block;
+    vertical-align: top;
+    /* Bumble logo yellow-gold: #fec459 */
+    /* background-color: #fec459; */
+    height: 50px;
+    width: 600px;
+    padding-top: 3px;
+}
+.child-of-header-navigation{
+    display: inline-block;
+    vertical-align: top;
+    padding-left: 62px;
+    color: #ffffff;
+}
+#main-content-wrapper{
+    display: block;
+    width: 870px;
+    height: 837px;
+    background-color: #ffffff;
+    padding-left: 17px;
+    padding-top: 18px;
+}
+#main-content-services-row-wrapper{
+    display: block;
+    height: 360px;
+    width: 846px;
+    /* Hulu logo dark green: #61a944 */
+    background-color: #61a944;
+}
+#main-content-tool-icons-row-wrapper{
+    display: block;
+    height: 207px;
+    width: 846px;
+    margin-top: 16px;
+    /* Twitter logo light blue: #00afe8 */
+    /* background-color: #00afe8; */
+}
+#main-content-world-can-be-yours-row-wrapper{
+    display: block;
+    height: 184px;
+    width: 846px;
+    /* Amazon logo gold: #ff952e */
+    /* background-color: #ff952e; */
+    padding-top: 31px;
+}
+#footer-wrapper{
+    display: block;
+    width: 887px;
+    height: 47px;
+    /* Lyft logo pink-purple: #ff0083 */
+    background-color: #dbedfe;
+
+}
+.child-of-footer-wrapper{
+    display: inline-block;
+    padding-top: 17px;
+    color: #6492b3;
+    font-size: 70%;
+    padding-left: 28px;
+}
+#main-img-png{
+    display: block;
+    vertical-align: top;
+    height: 360px;
+    width: 846px;
+}
+#tools-services-wrapper{
+    display: inline-block;
+    vertical-align: top;
+    width: 270px;
+    height: 207px;
+    background-color: #1b69a6;
+    /* margin-left: 18px; */
+}
+#tools-projects-wrapper{
+    display: inline-block;
+    vertical-align: top;
+    width: 270px;
+    height: 207px;
+    background-color: #1b69a6;
+    margin-left: 18px;
+}
+#tools-clients-wrapper{
+    display: inline-block;
+    vertical-align: top;
+    width: 261px;
+    height: 207px;
+    background-color: #1b69a6;
+    margin-left: 18px;
+}
+#world-can-be-yours-left-div{
+    display: inline-block;
+    vertical-align: top;
+    width: 554px;
+    height: 200px;
+    /* margin-left: 18px; */
+    /* Netflix logo dark red: #c00011 */
+    /* background-color: #c00011; */
+}
+#world-can-be-yours-right-div{
+    display: inline-block;
+    vertical-align: top;
+    width: 260px;
+    height: 200px;
+    margin-left: 18px;
+    /* Netflix logo dark red: #c00011 */
+    /* background-color: #c00011; */
+}
+#tools-services-wrapper-top-row{
+    display: block;
+    vertical-align: top;
+    height: 31px;
+    width: 240px;
+    /* background-color: #ffffff; */
+    padding-top: 12px;
+    padding-left: 8px;
+}
+#tools-services-wrapper-second-row{
+    display: block;
+    vertical-align: top;
+    height: 58px;
+    width: 240px;
+    /* background-color: #ffffff; */
+    margin-top: 10px;
+    padding-left: 17px;
+}
+#tools-services-wrapper-bottom-row{
+    display: block;
+    vertical-align: top;
+    height: 36px;
+    width: 240px;
+    /* background-color: #ffffff; */
+    margin-top: 41px;
+}
+.more-info-button-png{
+    display: block;
+    vertical-align: top;
+    height: 36px;
+    padding-left: 18px;
+}
+.tools-icon-png{
+    display: inline-block;
+    vertical-align: top;
+    width: 33px;
+    height: 31px;
+}
+.tools-wrapper-top-row-text{
+    display: inline-block;
+    vertical-align: top;
+    font-size: 110%;
+    padding-top: 5px;
+    color: #ffffff;
+}
+.tools-wrapper-second-row-text{
+    display: block;
+    vertical-align: top;
+    color: #ffffff;
+    font-size: 65%;
+}
+#tools-projects-wrapper-top-row{
+    display: block;
+    vertical-align: top;
+    height: 31px;
+    width: 240px;
+    /* background-color: #ffffff; */
+    padding-top: 12px;
+    padding-left: 8px;
+}
+#tools-projects-wrapper-second-row{
+    display: block;
+    vertical-align: top;
+    height: 58px;
+    width: 240px;
+    /* background-color: #ffffff; */
+    margin-top: 10px;
+    padding-left: 17px;
+}
+#tools-projects-wrapper-bottom-row{
+    display: block;
+    vertical-align: top;
+    height: 36px;
+    width: 240px;
+    /* background-color: #ffffff; */
+    margin-top: 41px;
+}
+#tools-clients-wrapper-top-row{
+    display: block;
+    vertical-align: top;
+    height: 31px;
+    width: 240px;
+    /* background-color: #ffffff; */
+    padding-top: 12px;
+    padding-left: 8px;
+}
+#tools-clients-wrapper-second-row{
+    display: block;
+    vertical-align: top;
+    height: 58px;
+    width: 240px;
+    /* background-color: #ffffff; */
+    margin-top: 10px;
+    padding-left: 17px;
+}
+#tools-clients-wrapper-bottom-row{
+    display: block;
+    vertical-align: top;
+    height: 36px;
+    width: 240px;
+    /* background-color: #ffffff; */
+    margin-top: 41px;
+}
+#the-world-can-be-yours-png{
+    display: inline-block;
+    vertical-align: top;
+    height: 184px;
+    width: 554px;
+}
+#testimonial-png{
+    display: inline-block;
+    vertical-align: top;
+    height: 184px;
+    width: 270px;
+}
+#child-of-footer-wrapper-01{
+    padding-left: 300px;
+    color: #a9d0ef;
+}
+#brand-header-blue-text{
+    color: #279be5;
+}
+#child-of-header-navigation-01{
+    color: #326487;
+}
+#world-can-be-yours-left-div-top-child{
+    display: block;
+    vertical-align: top;
+    width: 554px;
+    height: 40px;
+    /* Reddit logo orange: #ff3a19 */
+    /* background-color: #ff3a19; */
+    margin-bottom: 5px;
+    font-size: 140%;
+}
+#world-can-be-yours-left-div-bottom-child{
+    display: block;
+    vertical-align: top;
+    width: 554px;
+    height: 150px;
+    /* Reddit logo orange: #ff3a19 */
+    /* background-color: #ff3a19; */
+    margin-bottom: 5px;
+}
+#world-can-be-yours-right-div-top-child{
+    display: block;
+    vertical-align: top;
+    width: 260px;
+    height: 40px;
+    /* Reddit logo orange: #ff3a19 */
+    /* background-color: #ff3a19; */
+    margin-bottom: 5px;
+    font-size: 140%;
+}
+#world-can-be-yours-right-div-bottom-child{
+    display: block;
+    vertical-align: top;
+    width: 260px;
+    height: 150px;
+    /* Reddit logo orange: #ff3a19 */
+    /* background-color: #ff3a19; */
+    margin-bottom: 5px;
+}
+#building-png{
+    display: inline-block;
+    vertical-align: top;
+    width: 270px;
+    height: 144px;
+}
+#world-can-be-yours-left-div-bottom-child-text{
+    display: inline-block;
+    vertical-align: top;
+    width: 270px;
+    height: 120px;
+    /* Twitter logo light blue: #00afe8 */
+    /* background-color: #00afe8; */
+}
+.world-can-be-yours-left-div-bottom-child-text-black{
+    display: block;
+    vertical-align: top;
+    font-size: 75%;
+    margin-bottom: 7px;
+}
+#world-can-be-yours-right-div-bottom-child-text{
+    display: inline-block;
+    vertical-align: top;
+    width: 270px;
+    height: 120px;
+    /* Twitter logo light blue: #00afe8 */
+    /* background-color: #00afe8; */
+    font-style: italic;
+}
+
+/*
+width: 270px;
+height: 144px;
+*/
+
+/* background-colors:
+
+Reddit logo orange: #ff3a19
+
+Facebook logo blue: #2e5c97
+
+Google logo green: #1ba85c
+
+Google Play logo light blue: #00d9fc
+
+Hulu logo dark green: #61a944
+
+Twitter logo light blue: #00afe8
+
+Google plus logo red: #e54946
+
+Netflix logo dark red: #c00011
+
+Bumble logo yellow-gold: #fec459
+
+Evernote app icon green: #00ad32
+
+Amazon logo gold: #ff952e
+
+Lyft logo pink-purple: #ff0083

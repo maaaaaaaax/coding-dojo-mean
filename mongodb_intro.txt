@@ -2,6 +2,39 @@ To open:
 terminal window 1: sudo mongod
 terminal window 2: mongo
 
+Commands:
+
+Show all databases:           show dbs
+Show current database:        db
+Change to another database:   use DB_NAME
+Delete database:              db.dropDatabase()
+  (will delete current database in use)
+
+View all collections:         show collections
+Create a new collection:      db.createCollection("authors")
+  (in the current database)
+Destroy a collection:         db.ninjas.drop()
+
+Documents:
+
+CREATE - insert a document into a collection:
+db.ninjas.insert({name: "Trey", belt: "black", status: "awesome"})
+
+READ - retrieve documents from a collection:
+db.ninjas.find({name: "Trey"})
+alternately:
+db.ninjas.find().pretty()
+db.ninjas.find({_id: ObjectId("5462a78e514e258182f4c69a")})
+
+UPDATE
+db.ninjas.update({name: "Trey"}, {location: "Mountain View"}) - removes all fields not specified
+
+db.ninjas.update({name: "Trey"}, {$set: {location: "Mountain View"}})
+
+DESTROY
+db.ninjas.remove({belt: "yellow"})
+db.ninjas.remove({belt: "yellow"}, true) - removes the first result
+
 
 1. Create a database called 'my_first_db'.
 // use my_first_db

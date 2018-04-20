@@ -1,0 +1,223 @@
+Creating a new Angular app
+
+Navigate to the folder directory you want your app to be saved in:
+
+// set up Node and Express
+
+1. Copy & paste the package.json, server.js, static and views files from your last Node / Express project.
+
+2. In the folder with server.js, run:
+
+npm install
+
+3. In the directory containing server.js, run:
+
+ng new myFirstAngularApp --routing
+
+cd myFirstAngularApp
+
+ng build --watch
+
+4. In the Express app server.js file, change
+
+app.use(express.static( __dirname + '/angularHello/dist' ));
+
+to reflect the current file name
+
+5. In the Express app server.js file, change
+
+mongoose.connect('mongodb://localhost/restful_api_tasks');
+
+to reflect the current database name
+
+6. Start MongoDB in two terminal windows and Express in a third, with Angular already running:
+
+sudo mongod
+mongo
+nodemon server.js
+
+7. Create an HTTP service. In angular app in terminal:
+
+ng g s http
+
+8. Register the service - Open app.module.ts, add:
+
+import { HttpService } from './http.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+@NgModule({
+   ...
+   imports: [
+      BrowserModule,
+      HttpClientModule,
+      FormsModule,
+   ],
+   providers: [HttpService],
+   ...
+})
+
+9. Dependency injection: in .../app/http.service.ts, add:
+
+import { HttpClient } from '@angular/common/http';
+
+export class HttpService {
+    constructor(private _http: HttpClient){}
+}
+
+
+In .../app/app.component.ts:
+
+import { HttpService } from './http.service';
+
+export class AppComponent {
+   title = 'app';
+   constructor(private _httpService: HttpService){}
+ }
+
+
+10. Data from database:
+
+In .../app/http.service.ts:
+
+export class HttpService {
+    constructor(private _http: HttpClient){
+        this.getTasks();
+    }
+}
+
+getTasks(){
+    // our http response is an Observable, store it in a variable
+    let tempObservable = this._http.get('/tasks');
+    // subscribe to the Observable and provide the code we would like to do with our data from the response
+    tempObservable.subscribe(data => console.log("Got our tasks!", data));
+ }
+
+11. Create an Angular component for each route
+
+ng g c component_name
+
+In .../app/app.component.html - Redirecting via links
+
+<button [routerLink]="['alpha']">Load Alpha</button>
+<button [routerLink]="['beta']">Load Beta</button>
+<router-outlet></router-outlet>
+
+In .../app/app-routing.module.ts
+
+import { AlphaComponent } from './alpha/alpha.component';
+import { BetaComponent } from './beta/beta.component';
+import { GammaComponent } from './gamma/gamma.component';
+import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+const routes: Routes = [
+  { path: 'alpha',component: AlphaComponent },
+  { path: 'beta',component: BetaComponent },
+  // use a colon and parameter name to include a parameter in the url
+  { path: 'gamma/:id', component: GammaComponent },
+  { path: '', pathMatch: 'full', redirectTo: '/alpha' },
+  { path: '**', component: PageNotFoundComponent }
+];
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+
+In .../app/app.module.ts
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AlphaComponent } from './alpha/alpha.component';
+import { BetaComponent } from './beta/beta.component';
+import { GammaComponent } from './gamma/gamma.component';
+@NgModule({
+  declarations: [AppComponent, AlphaComponent, BetaComponent, GammaComponent],
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+
+
+// FETCH DATA
+
+A service is the part of Angular that serves as the model. Remember that in any MVC Framework, the Model’s job is to deliver data to the controller. Since our data is stored in a database, we need to communicate with our backend. This will be done via AJAX.
+
+//listen for a button click
+$('button').click(function(){
+   //when a button is clicked, make a get request to the pokemon api
+   //pass the data that comes back into the callback function
+   $.get('https://pokeapi.co/api/v2/pokemon/1/', function(data){
+      // this line will only run after the data has come back from the api
+      console.log(data);
+   }, 'json')
+})
+
+when a user clicks a button, the http request will be triggered, but we will not see any change in our url, so the user will not be navigated anywhere. This makes single page applications possible.
+
+Observables are a way to manage asynchronous data. With Angular, an http response is an Observable. Observables deliver data over time, so we can be notified if the data ever changes.
+
+An Observable uses the subscribe method to deliver its data to any part of the app that has subscribed to it, just like a newsletter that is sent out to subscribers.
+
+We'll set up our service by navigating to our Angular app in our terminal and running this line:
+
+ng g s http
+
+This gives us a file called http.service.ts. Open this file and you'll see that we are exporting a class called HttpService, which means another file can import it.
+
+To use our service, we'll need to register it with the app.
+
+Open src/app/app.module.ts and import HttpService. Provide the file path to your service file. Next, include HttpService in the array of providers.
+
+import { HttpService } from './http.service';
+
+@NgModule({
+   ...
+   providers: [HttpService],
+   ...
+})
+
+import { HttpClientModule } from '@angular/common/http';
+@NgModule({
+   ...
+   imports: [
+      BrowserModule,
+      HttpClientModule
+   ],
+   ...
+})
+
+
+Open .../app/http.service.ts:
+
+import { HttpClient } from '@angular/common/http';
+
+export class HttpService {
+    constructor(private _http: HttpClient){}
+}
+
+
+.../app/app.component.ts
+
+import { HttpService } from './http.service';
+
+export class AppComponent {
+   title = 'app';
+   constructor(private _httpService: HttpService){}
+ }
+
+
+Use interpolation {{ variableNameHere }} to print variables in the template.
+
+If we need a variable to be placed into an attribute, we would use data binding. For this we simply put square brackets around the attribute name and set its value as the variable name. The square brackets inform Angular we are supplying it with a variable and not a string <img [src]="varNameHere" />.
+
+To loop through an array, use the *ngFor directive, which goes directly into the tag you wish to repeat. Use the for of loop to declare the variable you wish to repeat.
+
+Other times, you'll need to hide or show a particular section of your code depending on conditions. For example, maybe you won't want to show a div until you get an http response from your server. For this, use the *ngIf directive, which also goes directly into the tag you wish to hide or show.

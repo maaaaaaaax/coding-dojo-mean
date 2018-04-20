@@ -1,0 +1,16 @@
+<p>
+  write works!
+</p>
+<div>
+  <form (submit)="newQuoteComponent()">
+    <h4>New quote for {{ author.name }}:</h4>
+    <p>Current author JSON: {{ author | json }} </p>
+    <p>Current author ID: {{ id }} </p>
+    <p>Current newQuote JSON: {{ newQuote | json }} </p>
+    <p style="color:red;font-weight:bold">{{quote_error}}</p>
+    <!-- <p *ngFor="let error of errors">{{errors[error].message}}</p> -->
+    <!-- <p> {{ newAuthor | json }} </p> -->
+    <input type='text' name='quote' [(ngModel)]="newQuote.content">
+    <input type='submit' value='submit' />
+  </form>
+</div>

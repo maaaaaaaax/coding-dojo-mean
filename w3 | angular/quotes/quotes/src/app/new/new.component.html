@@ -1,0 +1,13 @@
+<!-- <p>
+  new works!
+</p> -->
+<div>
+  <form (submit)="newAuthorComponent()">
+    <h4>New author:</h4>
+    <p style="color:red;font-weight:bold">{{name_error}}</p>
+    <!-- <p *ngFor="let error of errors">{{errors[error].message}}</p> -->
+    <!-- <p> {{ newAuthor | json }} </p> -->
+    <input type='text' name='name' [(ngModel)]="newAuthor.name">
+    <input type='submit' value='submit' />
+  </form>
+</div>

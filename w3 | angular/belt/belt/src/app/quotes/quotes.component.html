@@ -1,0 +1,25 @@
+<!-- <p>
+  quotes works!
+</p> -->
+<p>Quotes by <span style="font-weight:700">{{ author.name }}</span></p>
+<!-- <p>Author ID: {{ author._id }}</p> -->
+<table>
+  <thead>
+    <tr>
+      <!-- <th>ID</th> -->
+      <th>quote._id</th>
+      <th>Quote</th>
+      <th>Score</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="all_quotes" *ngFor="let quote of quotes">
+      <!-- <td>{{author._id}}</td> -->
+      <td>{{quote._id}}</td>
+      <td>{{quote.content}}</td>
+      <td>{{quote.score}}</td>
+      <td><button (click)="upvote(author._id,quote._id)">+1</button> <button (click)="downvote(author._id,quote._id)">-1</button> <button (click)="deleteQuoteComponent(author._id,quote._id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

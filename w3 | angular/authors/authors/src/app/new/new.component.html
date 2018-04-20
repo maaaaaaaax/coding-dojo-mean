@@ -1,0 +1,11 @@
+<!-- <p>
+  new works!
+</p> -->
+<div>
+  <form (submit)="newAuthorComponent()">
+    <h4>New author:</h4>
+    <!-- <p> {{ newAuthor | json }} </p> -->
+    <input type='text' name='newAuthor.name' [(ngModel)]="newAuthor.name" />
+    <input type='submit' value='submit' />
+  </form>
+</div>

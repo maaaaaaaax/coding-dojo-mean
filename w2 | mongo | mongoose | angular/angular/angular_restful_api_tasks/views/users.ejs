@@ -1,0 +1,42 @@
+<html>
+    <head>
+       <title>Dojo Survey Index</title>
+    </head>
+    <body>
+      <h3>Registered Users:</h3>
+      <hr>
+      <% for (var u in users) { %>
+        <p>ID: <%= users[u]._id %></p>
+        <p>Role: <%= users[u].role %></p>
+        <p>First Name: <%= users[u].first_name %></p>
+        <p>Last Name: <%= users[u].last_name %></p>
+        <p>User Name: <%= users[u].username %></p>
+        <p>Email: <%= users[u].email %></p>
+        <p>Birth Month: <%= users[u].birth_month %></p>
+        <p>Birth Day: <%= users[u].birth_day %></p>
+        <p>Birth Year: <%= users[u].birth_year %></p>
+        <p>Phone: <%= users[u].phone %></p>
+        <p>Zip Code: <%= users[u].zip_code %></p>
+        <p>City: <%= users[u].city %></p>
+        <p>State: <%= users[u].state %></p>
+        <p>Country: <%= users[u].country %></p>
+        <p>Facebook: <%= users[u].facebook %></p>
+        <p>Instagram: <%= users[u].instagram %></p>
+        <p>LinkedIn: <%= users[u].linkedin %></p>
+        <p>Venmo: <%= users[u].venmo %></p>
+        <p>Created At: <%= users[u].created_at %></p>
+        <p>Updated At: <%= users[u].updated_at %></p>
+        <a href="/users/edit/<%= users[u]._id %>"><button type="button">Edit User</button></a>
+        <!-- <a href="/users/destroy/<%= users[u]._id %>"><button type="button">Delete User</button></a> -->
+        <form action='/users/destroy/<%= users[u]._id %>' method='post'>
+          <input type='submit' value='Delete User'>
+        </form>
+        <hr>
+      <% } %>
+      <% if(users.length === 0) { %>
+        <p>No users found</p>
+        <hr>
+      <% } %>
+      <a href="/users/new"><button type="button">New User Registration</button></a>
+    </body>
+</html>

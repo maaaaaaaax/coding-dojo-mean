@@ -1,0 +1,9 @@
+<button [routerLink]="['/home']">Home</button>
+<p style="font-weight:700">Details about {{pet.name}}</p>
+<p>Pet type: {{pet.type}}</p>
+<p>Description: {{pet.description}}</p>
+<p>Skills: {{pet.skill1}}</p>
+<p>{{pet.skill2}}</p>
+<p>{{pet.skill3}}</p>
+<p>Likes: {{pet.likes}}</p>
+<p><button (click)="upvote(pet._id)">Like this pet</button> <button (click)="deletePetComponent(pet._id)">Adopt this pet!</button></p>

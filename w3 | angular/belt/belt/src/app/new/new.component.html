@@ -1,0 +1,31 @@
+<!-- <p>
+  new works!
+</p> -->
+<p style="font-weight:700">Know of a pet needing a home?</p>
+<div>
+  <form (submit)="newPetComponent()">
+    <p style="color:red;font-weight:bold">{{name_error}}</p>
+    <p style="color:red;font-weight:bold">{{type_error}}</p>
+    <p style="color:red;font-weight:bold">{{description_error}}</p>
+
+    <!-- <p *ngFor="let error of errors">{{errors[error].message}}</p> -->
+    <!-- <p> {{ newPet | json }} </p> -->
+    <p>Pet name:</p>
+    <input type='text' name='name' [(ngModel)]="newPet.name">
+    <p>Pet type:</p>
+    <input type='text' name='type' [(ngModel)]="newPet.type">
+    <p>Pet description:</p>
+    <input type='text' name='description' [(ngModel)]="newPet.description">
+    <p>Skills:</p>
+    <p>Skill 1:</p>
+    <input type='text' name='skill1' [(ngModel)]="newPet.skill1">
+    <p>Skill 2:</p>
+    <input type='text' name='skill2' [(ngModel)]="newPet.skill2">
+    <p>Skill 3:</p>
+    <input type='text' name='skill3' [(ngModel)]="newPet.skill3">
+    <div>
+      <input type='submit' value='Add pet' />
+      <button [routerLink]="['/home']">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,57 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<div>
+  <h4>All the tasks:</h4>
+  <button (click)="getTasksFromService()">View tasks</button>
+  <div id="all_tasks" *ngFor="let task of tasks">
+    <p>{{task._id}} - {{task.title}} - {{ task.description }} - {{ task.completed }}
+      <button (click)="showUpdate(task._id, task.title, task.description, task.completed)">Update task</button> <button (click)="onDelete(task._id)">Delete task</button>
+    </p>
+    <div *ngIf="showForm && editATask._id == task._id">
+      <form (submit)="submitEditTask()">
+        <input type='text' name='editATask.title' [(ngModel)]="editATask.title" />
+        <input type='text' name='editATask.description' [(ngModel)]="editATask.description" />
+        <input type='text' name='editATask.completed' [(ngModel)]="editATask.completed" />
+        <input type='submit' value='Edit Task' />
+      </form>
+    </div>
+  </div>
+</div>
+<div>
+  <h4>The third task:</h4>
+  <p>{{tasks[2]._id}} - {{tasks[2].title}} - {{ tasks[2].description }}</p>
+</div>
+<div>
+  <form (submit)="onSubmit()">
+    <h4>New task:</h4>
+    <p> {{ newTask | json }} </p>
+    <input type='text' name='newTask.title' [(ngModel)]="newTask.title" />
+    <input type='text' name='newTask.description' [(ngModel)]="newTask.description" />
+    <input type='submit' value='Create Task' />
+  </form>
+</div>
+<!-- <h2>Here are some links to help you start: </h2>
+<ul>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
+  </li>
+</ul> -->
+<h3>Value of num is: {{num}}</h3>
+<h3>Value of randNum is: {{randNum}}</h3>
+<h3>{{str}}</h3>
+<input type="text" [placeholder]="first_name" />
+
+<p *ngIf="loggedIn">You are logged in!</p>
+<p *ngFor="let snack of snacks">{{snack}}</p>
+<p *ngIf="snacks.length < 3">You need more snacks.</p>

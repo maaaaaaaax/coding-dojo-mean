@@ -1,0 +1,128 @@
+<!-- HTML & JavaScript code by Max Wiederholt (max.wiederholt@gmail.com) -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <meta name="description" content="Hi, Google! | HTML & JavaScript by Max Wiederholt (max.wiederholt@gmail.com) for Coding Dojo.">
+    <!--
+
+    Notes if you need to explain the purpose of this document.
+
+    -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,600,700" rel="stylesheet">
+    <!-- CSS for local use: -->
+    <!-- <link rel="stylesheet" type="text/css" href="../static/index.css"> -->
+    <!-- while live: -->
+    <link rel="stylesheet" type="text/css" href="/index.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <% if(typeof(errors) != 'undefined' ) { %>
+        <% for (var x in errors) { %>
+          <p class="error_message"><%= errors[x].message %></p>
+        <% } %>
+      <% } %>
+      <form action='/users' method='post'>
+        <div id="roles_wrapper">
+          <p id="roles_title">When I grow up, I want to be ... </p>
+          <div class="roles_row">
+            <div class="roles">
+              <input type="checkbox" id="writer" name="role" value="writer">
+              <label class="roles_label" for="writer">a <span class="role_text">writer</span></label>
+            </div>
+            <div class="roles">
+              <input type="checkbox" id="producer" name="role" value="producer">
+              <label class="roles_label" for="producer">a <span class="role_text">producer</span></label>
+            </div>
+            <div class="roles">
+              <input type="checkbox" id="director" name="role" value="director">
+              <label class="roles_label" for="director">a <span class="role_text">director</span></label>
+            </div>
+            <div class="roles">
+              <input type="checkbox" id="actor" name="role" value="actor">
+              <label class="roles_label" for="actor">an <span class="role_text">actor</span></label>
+            </div>
+            <div class="roles">
+              <input type="checkbox" id="crew" name="role" value="crew">
+              <label class="roles_label" for="crew">on a <span class="role_text">film crew</span></label>
+            </div>
+          </div>
+          <div class="roles_row">
+            <div class="roles">
+              <input type="checkbox" id="post" name="role" value="post">
+              <label class="roles_label" for="post">in <span class="role_text">post production</span></label>
+            </div>
+            <div class="roles">
+              <input type="checkbox" id="office" name="role" value="office">
+              <label class="roles_label" for="office">in a <span class="role_text">film studio</span>'s office</label>
+            </div>
+            <div class="roles">
+              <input type="checkbox" id="partner" name="role" value="partner">
+              <label class="roles_label" for="partner">a film production <span class="role_text">partner</span></label>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <div class="names">
+            <input type='text' name='first_name' value="first name">
+            <input type='text' name='last_name' value="last name">
+          </div>
+          <div class="contact">
+            <input type='text' name='username' value="username">
+            <input type='text' name='email' value="email">
+          </div>
+        </div>
+        <div>
+          Birthday:
+          <input type='text' name='birth_month' value="month">
+          <input type='text' name='birth_day' value="day">
+          <input type='text' name='birth_year' value="year">
+        </div>
+        <div>
+          Optional:
+          <div>
+            <input type='text' name='phone' value="phone number">
+            Please include your area code, and omit any non-numerical characters.
+            (Ex: 6501234567)
+          </div>
+          <div>
+            Location:
+            <input type='text' name='zip_code' value="zip code">
+            (Ex: 90210)
+            <input type='text' name='city' value="city">
+            (Ex: Los Angeles)
+            <input type='text' name='state' value="state postal code">
+            (Ex: CA)
+            <input type='text' name='country' value="country">
+            (Ex: USA)
+          </div>
+          <div>
+            <div>
+              <input type='text' name='facebook' value="facebook username">
+              (When you visit your profile, your username follows fb.com/ Ex: max.wiederholt)
+            </div>
+            <div>
+              <input type='text' name='instagram' value="instagram username">
+              (Your Instagram username, including '@'. Ex: @maxwiederholt)
+            </div>
+            <div>
+              <input type='text' name='linkedin' value="LinkedIn username">
+              (When you visit your profile, your username follows linkedin.com/in/ Ex: maxwiederholt)
+            </div>
+            <div>
+              <input type='text' name='venmo' value="Venmo username">
+              (Your Venmo username, including '@'. Ex: @MaxWiederholt)
+            </div>
+          </div>
+        </div>
+          <input type='submit' value='submit'>
+      </form>
+      <a href="/"><button type="button">show users</button></a>
+    </div>
+  </body>
+</html>

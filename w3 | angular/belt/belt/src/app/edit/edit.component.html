@@ -1,0 +1,23 @@
+<div>
+  <form (submit)="editPetComponent()">
+    <h4>Edit this pet:</h4>
+    <p style="color:red;font-weight:bold">{{name_error}}</p>
+    <p style="color:red;font-weight:bold">{{type_error}}</p>
+    <p style="color:red;font-weight:bold">{{description_error}}</p>
+    <!-- <p> {{ pet | json }} </p> -->
+    <p>Pet name:</p>
+    <input type='text' name='name' [(ngModel)]="pet.name" placeholder="pet.name" />
+    <p>Pet type:</p>
+    <input type='text' name='type' [(ngModel)]="pet.type" placeholder="pet.type" />
+    <p>Pet description:</p>
+    <input type='text' name='description' [(ngModel)]="pet.description" placeholder="pet.description" />
+    <p>Skills:</p>
+    <input type='text' name='skill1' [(ngModel)]="pet.skill1" />
+    <input type='text' name='skill2' [(ngModel)]="pet.skill2" />
+    <input type='text' name='skill3' [(ngModel)]="pet.skill3" />
+    <div>
+      <input type='submit' value='Edit Pet' />
+      <button [routerLink]="['/home']">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+<!-- <p>
+  home works!
+</p> -->
+<table>
+  <thead>
+    <tr>
+      <!-- <th>ID</th> -->
+      <th>Author</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="all_authors" *ngFor="let author of authors">
+      <!-- <td>{{author._id}}</td> -->
+      <td style="font-weight:bold">{{author.name}}</td>
+      <td><button [routerLink]="['/edit', author._id]">Edit</button> <button (click)="deleteAuthor(author._id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Below: works without adding the edit function -->
+
+<!-- <tr id="all_authors" *ngFor="let author of authors">
+  <td>{{author._id}}</td>
+  <td style="font-weight:bold">{{author.name}}</td>
+  <td><button  (click)="showUpdate(author._id, author.name)">Edit</button> <button (click)="deleteAuthor(author._id)">Delete</button></td>
+</tr> -->
+
+<!-- this._route.params.subscribe((params: Params) => this.id = params['id']; -->

@@ -1,0 +1,11 @@
+<p>
+  edit works!
+</p>
+<div>
+  <form (submit)="editAuthorComponent()">
+    <h4>Edit author:</h4>
+    <p> {{ author | json }} </p>
+    <input type='text' name='author.name' [(ngModel)]="author.name" placeholder="author.name" />
+    <input type='submit' value='submit' />
+  </form>
+</div>

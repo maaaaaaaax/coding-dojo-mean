@@ -1,0 +1,34 @@
+<!-- <p>
+  home works!
+</p> -->
+<p style="font-weight:700">These pets are looking for a home!</p>
+<button [routerLink]="['/new']">Add a pet to the shelter</button>
+<table>
+  <thead>
+    <tr>
+      <!-- <th>ID</th> -->
+      <th>Name</th>
+      <th>Type</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="all_pets" *ngFor="let pet of pets">
+      <!-- <td>{{author._id}}</td> -->
+      <td>{{pet.name}}</td>
+      <td>{{pet.type}}</td>
+      <td><button [routerLink]="['/details', pet._id]">Details</button> <button [routerLink]="['/edit', pet._id]">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Below: works without adding the edit function -->
+
+<!-- <tr id="all_authors" *ngFor="let author of authors">
+  <td>{{author._id}}</td>
+  <td style="font-weight:bold">{{author.name}}</td>
+  <td><button  (click)="showUpdate(author._id, author.name)">Edit</button> <button (click)="deleteAuthor(author._id)">Delete</button></td>
+</tr> -->
+
+<!-- this._route.params.subscribe((params: Params) => this.id = params['id']; -->
